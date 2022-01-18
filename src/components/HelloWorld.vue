@@ -38,6 +38,7 @@ export default {
       let response = await axios.get(Api_url);
 
       this.posts = await response.data;
+      console.log(response);
     } catch {
       (error) => {
         console.log(error);

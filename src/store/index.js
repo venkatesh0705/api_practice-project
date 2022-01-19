@@ -27,7 +27,6 @@ export default createStore({
       const response = await axios.get(
         "https://61a085036c3b400017e69900.mockapi.io/sampleData"
       );
-      console.log(response);
 
       commit("ADD_USERS", response.data);
     },

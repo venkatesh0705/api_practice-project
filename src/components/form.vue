@@ -1,41 +1,48 @@
 <template>
-  <div class="p-d-flex p-flex-column p-jc-center p-ai-center">
-    <div class="">
+  <div class="">
+    <div class="header p-text-center">
       <h1>Data entry Form</h1>
     </div>
-    <div class="main_content p-card p-mb-5">
-      <div class="p-mb-4 p-fluid">
-        <div>
-          <div class="firstName">firstName</div>
+    <div class="main_content p-d-flex p-jc-center p-card p-mb-5">
+      <div class="container">
+        <div class="p-mb-4 p-fluid">
+          <div>
+            <div class="firstName">firstName</div>
+          </div>
+          <div>
+            <InputText type="text" id="firstName" v-model="users.firstName" />
+          </div>
         </div>
-        <div>
-          <InputText type="text" id="firstName" v-model="users.firstName" />
+        <div class="p-mb-4 p-fluid">
+          <div>
+            <div for="lastName">lastName</div>
+          </div>
+          <div>
+            <InputText type="text" id="lastName" v-model="users.lastName" />
+          </div>
         </div>
-      </div>
-      <div class="p-mb-4 p-fluid">
-        <div>
-          <div for="lastName">lastName</div>
+        <div class="p-mb-4 p-fluid">
+          <div>
+            <div class="label">age</div>
+          </div>
+          <div>
+            <InputText type="number" id="age" v-model="users.age" />
+          </div>
         </div>
-        <div>
-          <InputText type="text" id="lastName" v-model="users.lastName" />
+        <div class="p-mb-4 p-fluid">
+          <Buttons
+            class="sub-button p-button-lg"
+            type="submit"
+            @click.prevent="submit()"
+          >
+            submit
+          </Buttons>
         </div>
-      </div>
-      <div class="p-mb-4 p-fluid">
-        <div>
-          <div class="label">age</div>
-        </div>
-        <div>
-          <InputText type="number" id="age" v-model="users.age" />
-        </div>
-      </div>
-      <div class="p-mb-4 p-fluid">
-        <Buttons class="sub-button" type="submit" @click.prevent="submit()">
-          submit
-        </Buttons>
       </div>
     </div>
     <div class="table">
       <displayData />
+      <tabledata />
     </div>
   </div>
 </template>
@@ -45,11 +52,13 @@ import { mapState, mapActions } from "vuex";
 import displayData from "./data.vue";
 import InputText from "primevue/inputtext";
 import Buttons from "primevue/button";
+import tabledata from "./datatable.vue";
 export default {
   components: {
     displayData,
     InputText,
     Buttons,
+    tabledata,
   },
   data() {
     return {
@@ -62,9 +71,7 @@ export default {
   },
 
   computed: {
-    ...mapState({
-      state: "data",
-    }),
+    ...mapState(["data"]),
   },
 
   methods: {
@@ -78,16 +85,22 @@ export default {
       console.log("state", this.state);
     },
   },
+  created() {
+    this.fetchData;
+  },
 };
 </script>
 
 <style>
-.main_content {
+.container {
   max-width: 508px;
   width: 100%;
   padding: 20px;
 }
 .sub-button {
+  display: block !important;
+}
+.table {
   display: block !important;
 }
 </style>

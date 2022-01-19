@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <table border="1">
+  <div class="normal_table">
+    <!-- <table border="1">
       <thead>
         <tr>
           <th>id</th>
@@ -16,23 +16,34 @@
           <td>{{ data.lastName }}</td>
           <td>{{ data.age }}</td>
         </tr>
-      </tbody>
-    </table>
+      </tbody> -->
+    <!-- </table> -->
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+// import DataTable from "primevue/datatable";
+import { mapActions } from "vuex";
+
 export default {
+  components: {},
+  data() {
+    return {
+      user: [],
+    };
+  },
+
   methods: {
     ...mapActions(["fetchData"]),
   },
-  computed: {
-    ...mapGetters(["ALL_USERS"]),
-  },
+
+  // computed: {
+  //   ...mapGetters(["ALL_USERS"]),
+  // },
+  apiService: null,
+  // lifecycle methods
   created() {
     this.fetchData();
-    console.log(this.fetchData);
   },
 };
 </script>

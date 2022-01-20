@@ -1,17 +1,14 @@
 <template>
   <div>
-    <!-- <HelloWorld /> -->
     <forms />
   </div>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
 import forms from "./components/form.vue";
 export default {
   name: "App",
   components: {
-    // HelloWorld,
     forms,
   },
 };

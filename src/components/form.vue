@@ -41,7 +41,6 @@
       </div>
     </div>
     <div class="table">
-      <displayData />
       <tabledata />
     </div>
   </div>
@@ -49,13 +48,11 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import displayData from "./data.vue";
 import InputText from "primevue/inputtext";
 import Buttons from "primevue/button";
 import tabledata from "./datatable.vue";
 export default {
   components: {
-    displayData,
     InputText,
     Buttons,
     tabledata,
@@ -76,7 +73,7 @@ export default {
 
   methods: {
     // ...mapMutations(["ADD_USER"]),
-    ...mapActions(["add_user"]),
+    ...mapActions(["add_user", "fetchData"]),
     submit() {
       //
       this.add_user(this.users);

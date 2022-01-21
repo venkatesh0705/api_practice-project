@@ -1,15 +1,23 @@
 <template>
   <div>
     <forms />
+    <slotParent />
+    <br />
+    <hr />
+    <mixin_practice />
   </div>
 </template>
 
 <script>
 import forms from "./components/form.vue";
+import slotParent from "./components/slot practice/slot parent.vue";
+import mixin_practice from "./components/mixins/index.vue";
 export default {
   name: "App",
   components: {
     forms,
+    slotParent,
+    mixin_practice,
   },
 };
 </script>
